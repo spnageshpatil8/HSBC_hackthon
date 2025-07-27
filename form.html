@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Enter Transaction Details</h2>
+    <form action="/predict" method="post">
+        Step: <input type="number" name="step" step="1" required><br><br>
+        Customer: <input type="text" name="customer" required><br><br>
+        Age: 
+        <select name="age">
+            <option value="20-29">20-29</option>
+            <option value="30-39">30-39</option>
+            <option value="40-49">40-49</option>
+        </select><br><br>
+        Gender: 
+        <select name="gender">
+            <option value="F">F</option>
+            <option value="M">M</option>
+        </select><br><br>
+        Merchant: <input type="text" name="merchant" required><br><br>
+        Category:
+        <select name="category">
+            <option value="shopping">Shopping</option>
+            <option value="travel">Travel</option>
+            <option value="entertainment">Entertainment</option>
+        </select><br><br>
+        Amount: <input type="number" name="amount" step="0.01" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
